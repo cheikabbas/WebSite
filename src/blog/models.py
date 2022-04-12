@@ -28,6 +28,9 @@ class BlogPost(models.Model):
     content = models.TextField()
     description = models.TextField()
 
+    def number_of_words(self):
+        return len(self.content.split())
+
 
 class Author(models.Model):
     firstName = models.CharField(max_length=100)

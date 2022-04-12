@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+</head>
+<body>
+    {% with nb=post.number_of_words %}
+        <a href="{% url 'Blog-index' %}"> Retour vers les articles</a>
+        <h1> {{ post.title }} </h1>
+        <h2> {{ post.description  }} </h2>
+        {% if post.content %}
+            <h3>Contenu</h3>
+            <p> {{ post.content }} </p>
+            <p> Nombre de mots : {{ nb }} </p>
+        {% else %}
+            <h3> Pas de contenu disponible pour cet article </h3>
+        {% endif %}
+        {% if post.date %}
+            <p> Publié le {{ post.date }} </p>
+        {% else %}
+            <p>Pas de date de publication disponible</p>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
